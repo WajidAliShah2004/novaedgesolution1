@@ -1,0 +1,69 @@
+═══════════════════════════════════════════════════════════════
+  PUSH TO GITHUB - MANUAL STEPS WITH BROWSER AUTH
+═══════════════════════════════════════════════════════════════
+
+Since I cannot install GitHub CLI directly, please follow these steps:
+
+───────────────────────────────────────────────────────────────
+STEP 1: Install GitHub CLI (One-time setup)
+───────────────────────────────────────────────────────────────
+
+Download from: https://cli.github.com/
+
+OR use this direct link:
+https://github.com/cli/cli/releases/latest
+
+Choose: gh_X.XX.X_windows_amd64.msi
+
+Install it, then restart your terminal.
+
+───────────────────────────────────────────────────────────────
+STEP 2: Authenticate with Browser (After installing GitHub CLI)
+───────────────────────────────────────────────────────────────
+
+Open a NEW terminal and run:
+
+gh auth login
+
+Then select:
+1. GitHub.com
+2. HTTPS
+3. Yes (authenticate Git with GitHub credentials)
+4. Login with a web browser
+
+A browser will open - login with your GitHub account.
+
+───────────────────────────────────────────────────────────────
+STEP 3: Push Your Code
+───────────────────────────────────────────────────────────────
+
+After authentication, run:
+
+cd C:\Users\MURTAZAY\Downloadsopopmyhvbuy\novaedge\novaedge-nextjs
+git push -u origin main
+
+───────────────────────────────────────────────────────────────
+ALTERNATIVE: Use Personal Access Token (Without GitHub CLI)
+───────────────────────────────────────────────────────────────
+
+If you prefer not to install GitHub CLI:
+
+1. Create a token: https://github.com/settings/tokens
+2. Generate new token (classic)
+3. Select scope: ✅ repo
+4. Copy the token
+
+Then push:
+cd C:\Users\MURTAZAY\Downloadsopopmyhvbuy\novaedge\novaedge-nextjs
+git push -u origin main
+
+Username: WajidAliShah2004
+Password: [paste your token]
+
+───────────────────────────────────────────────────────────────
+
+✅ Your code is ready to push!
+✅ Repository: https://github.com/WajidAliShah2004/NovaEdgeportfolio.git
+✅ All changes committed and ready
+
+═══════════════════════════════════════════════════════════════

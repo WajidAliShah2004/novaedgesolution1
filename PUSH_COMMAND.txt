@@ -1,0 +1,28 @@
+═══════════════════════════════════════════════════════════════
+  PUSH TO: https://github.com/WajidAliShah2004/NovaEdgeSolution.git
+═══════════════════════════════════════════════════════════════
+
+✅ Remote URL is configured
+✅ All changes are committed
+✅ Ready to push
+
+───────────────────────────────────────────────────────────────
+COPY AND RUN THIS COMMAND:
+───────────────────────────────────────────────────────────────
+
+git push -u origin main
+
+───────────────────────────────────────────────────────────────
+WHEN PROMPTED FOR CREDENTIALS:
+───────────────────────────────────────────────────────────────
+
+Username: WajidAliShah2004
+Password: [Your GitHub Personal Access Token]
+
+Get token at: https://github.com/settings/tokens
+Select scope: ✅ repo
+
+───────────────────────────────────────────────────────────────
+
+That's it! Just run the command above from this directory:
+C:\Users\MURTAZAY\Downloadsopopmyhvbuy\novaedge\novaedge-nextjs
