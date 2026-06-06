@@ -576,25 +576,25 @@ export default function Home() {
           <div className="contact-grid">
             <div className="contact-card" onClick={() => goLink('mailto:murtazajii876@gmail.com')}>
               <div className="contact-icon">📧</div>
-              <div className="contact-label">Email - Murtaza</div>
+              <div className="contact-label">Email - Murtaza Hussain</div>
               <div className="contact-value">murtazajii876@gmail.com</div>
             </div>
 
             <div className="contact-card" onClick={() => goLink('mailto:Zeeshanonwork@gmail.com')}>
               <div className="contact-icon">📧</div>
-              <div className="contact-label">Email - Zeeshan</div>
+              <div className="contact-label">Email - Zeeshan Liaqat</div>
               <div className="contact-value">zeeshanonwork@gmail.com</div>
             </div>
 
             <div className="contact-card" onClick={() => goLink('tel:+923165479603')}>
               <div className="contact-icon">📱</div>
-              <div className="contact-label">Phone - Murtaza</div>
+              <div className="contact-label">Phone - Murtaza Hussain</div>
               <div className="contact-value">+92 316 5479603</div>
             </div>
 
             <div className="contact-card" onClick={() => goLink('tel:+923485032295')}>
               <div className="contact-icon">📱</div>
-              <div className="contact-label">Phone - Zeeshan</div>
+              <div className="contact-label">Phone - Zeeshan Liaqat</div>
               <div className="contact-value">+92 348 5032295</div>
             </div>
           </div>
