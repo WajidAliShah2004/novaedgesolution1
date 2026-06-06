@@ -72,7 +72,28 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero" id="hero">
+        {/* EW / signal-intelligence decorative cluster */}
+        <div className="hero-hud" aria-hidden="true">
+          <div className="radar">
+            <span className="cross-h"></span>
+            <span className="cross-v"></span>
+            <span className="radar-sweep"></span>
+            <span className="radar-blip"></span>
+          </div>
+          <div className="ew-spectrum">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <span key={i} style={{ animationDelay: `${(i * 0.08).toFixed(2)}s` }}></span>
+            ))}
+          </div>
+        </div>
+
         <div className="wrap">
+          <div className="hud-readout">
+            <span><b>SYS</b> ONLINE</span>
+            <span><b>NEURAL.NET</b> <span className="sig">ACTIVE</span></span>
+            <span><b>SIGNAL</b> <span className="amb">LOCKED</span></span>
+            <span><b>LATENCY</b> &lt;24H</span>
+          </div>
           <div className="hero-badge">
             <div className="hero-badge-dot"></div>
             <span>Available for Projects · AI · Cloud · Full-Stack</span>
@@ -126,6 +147,9 @@ export default function Home() {
             </p>
             <p className="about-text">
               We work as a long-term partner, not a one-off contractor: honest scoping, steady communication, on-time delivery, and full ownership of the code and data we produce for you.
+            </p>
+            <p className="about-text">
+              Our multidisciplinary team spans software, AI, and electrical engineering — including DSP and avionics specialists with hands-on experience in electronic-warfare (EW) systems — so we can take on hardware-integrated and signal-heavy work that pure software shops cannot.
             </p>
           </div>
           <div className="values-grid">
@@ -550,10 +574,10 @@ export default function Home() {
           </div>
 
           <div className="contact-grid">
-            <div className="contact-card" onClick={() => goLink('mailto:murtazajii603@gmail.com')}>
+            <div className="contact-card" onClick={() => goLink('mailto:murtazajii876@gmail.com')}>
               <div className="contact-icon">📧</div>
               <div className="contact-label">Email - Murtaza</div>
-              <div className="contact-value">murtazajii603@gmail.com</div>
+              <div className="contact-value">murtazajii876@gmail.com</div>
             </div>
 
             <div className="contact-card" onClick={() => goLink('mailto:Zeeshanonwork@gmail.com')}>

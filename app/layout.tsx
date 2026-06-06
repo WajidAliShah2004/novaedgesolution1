@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import NeuralBackground from './components/NeuralBackground';
+import HudOverlay from './components/HudOverlay';
 
 export const metadata: Metadata = {
   title: 'NovaEdge Solutions — Portfolio',
@@ -17,7 +19,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body>{children}</body>
+      <body>
+        <NeuralBackground />
+        <HudOverlay />
+        {children}
+      </body>
     </html>
   );
 }

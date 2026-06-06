@@ -3,30 +3,77 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const CASE_STUDIES = [
+type CaseStudy = {
+  badge: string;
+  tag: string;
+  title: string;
+  challenge: string;
+  result: string;
+  stack: string;
+  location?: string;
+  link?: string;
+};
+
+const CASE_STUDIES: CaseStudy[] = [
   {
     badge: 'badge-ai',
     tag: 'AI · Automation',
-    title: 'AI-Powered Lead Generation Engine',
-    challenge: 'A B2B client needed qualified leads at scale without manual research.',
-    result: 'An automated engine that scrapes, enriches, and delivers structured leads on a schedule.',
-    stack: 'Python · Web Scraping · Data Enrichment · Automation',
+    title: 'A.T.L.A.S. Engine — Autonomous Lead Generation',
+    challenge: 'A B2B client needed qualified leads at scale without manual prospecting or a sales team.',
+    result: 'A fully autonomous, multi-agent AI engine that discovers prospects, enriches contacts, runs multi-channel outreach and live AI calls, and books meetings 24/7.',
+    stack: 'Multi-Agent AI · LLMs · Python · Enrichment APIs · Telephony',
+    location: 'USA',
+    link: 'https://atlase.ai',
+  },
+  {
+    badge: 'badge-ai',
+    tag: 'AI · OCR · EdTech',
+    title: 'GradeWise AI — Assignment Grading Assistant',
+    challenge: 'University students needed fast, reliable feedback on assignments before submitting them.',
+    result: 'An AI assistant that reads uploaded work via OCR, predicts grades against the rubric, and returns detailed feedback with plagiarism and AI-content checks.',
+    stack: 'AI/LLM · Google Cloud Vision OCR · Web App',
+    location: 'Australia',
+    link: 'https://gradewiseai.com',
+  },
+  {
+    badge: 'badge-mobile',
+    tag: 'Mobile · iOS & Android',
+    title: 'Storibee — Personalised Bedtime Stories',
+    challenge: 'Parents wanted a safe, personal way to read bedtime stories — even when away from their children.',
+    result: 'A cross-platform app with 60+ curated stories and voice replication that lets parents narrate in their own voice; COPPA-compliant and ad-free.',
+    stack: 'Flutter · iOS · Android · Backend · Voice AI',
+    location: 'USA',
+    link: 'https://storibee.com',
+  },
+  {
+    badge: 'badge-enterprise',
+    tag: 'Kiosk · Hardware · Payments',
+    title: "Jane's Golf Carts — Self-Service Kiosk",
+    challenge: 'A US dealership wanted unattended, in-store sales and checkout with real cash and card handling.',
+    result: 'A self-service kiosk integrating a bill acceptor, Stripe Terminal, cash dispenser, thermal printer, barcode scanner, and QuickBooks sync for end-to-end automated transactions.',
+    stack: 'Kiosk · Stripe Terminal · QuickBooks API · Hardware Integration',
+    location: 'USA',
+    link: 'https://janesgolfcarts.com',
+  },
+  {
+    badge: 'badge-web',
+    tag: 'Web · Business',
+    title: 'MRE Consulting — Advisory Web Platform',
+    challenge: 'A New York advisory firm needed a professional web presence spanning tax, insurance, and AI services.',
+    result: 'A clean, conversion-focused website presenting the firm’s integrated consulting offering.',
+    stack: 'Next.js · Responsive Web · UI Design',
+    location: 'USA',
+    link: 'https://mrecai.com',
   },
   {
     badge: 'badge-web',
     tag: 'Automation · Infrastructure',
-    title: 'Workflow Automation Infrastructure (Barbeflo)',
+    title: 'Workflow Automation Infrastructure (Barberflo)',
     challenge: 'High volumes of incoming webhooks and data needed processing with minimal manual work.',
     result: 'Automated multi-step workflows that normalise data and run operations with near-zero overhead.',
     stack: 'n8n · Python · Webhooks · API Integration',
-  },
-  {
-    badge: 'badge-ai',
-    tag: 'OCR · Document AI',
-    title: 'Document Processing with Google OCR',
-    challenge: 'Unstructured documents needed to be converted into usable, structured data.',
-    result: 'An OCR pipeline that turns scanned text into clean, structured records automatically.',
-    stack: 'Google Cloud Vision OCR · Node.js · JSON',
+    location: 'USA',
+    link: 'https://barberflo.com',
   },
   {
     badge: 'badge-enterprise',
@@ -67,6 +114,24 @@ const CASE_STUDIES = [
     challenge: 'A customer portal suffered from scripting errors and slow database queries.',
     result: 'Resolved errors and optimised indexing to reduce load times significantly.',
     stack: 'PHP · MySQL · Web Server',
+  },
+  {
+    badge: 'badge-enterprise',
+    tag: 'POS · Retail',
+    title: 'Mobile Shop POS & Management System',
+    challenge: 'A local mobile-phone retailer was tracking sales and stock manually.',
+    result: 'A point-of-sale and shop-management system handling sales, billing, and customer records.',
+    stack: 'POS · Desktop/Web · Database',
+    location: 'Pakistan',
+  },
+  {
+    badge: 'badge-enterprise',
+    tag: 'Inventory · Retail',
+    title: 'Inventory Management System',
+    challenge: 'A local business needed accurate stock control across purchases and sales.',
+    result: 'An inventory system with stock tracking, purchase and sales records, and low-stock reporting.',
+    stack: 'Inventory · Database · Reporting',
+    location: 'Pakistan',
   },
 ];
 
@@ -163,6 +228,21 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                   <div className="case-stack">{c.stack}</div>
+                  {(c.location || c.link) && (
+                    <div className="case-meta">
+                      {c.location && <span className="case-loc">📍 {c.location}</span>}
+                      {c.link && (
+                        <a
+                          className="case-link"
+                          href={c.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {c.link.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
