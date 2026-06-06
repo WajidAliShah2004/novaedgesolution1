@@ -102,12 +102,12 @@ export default function Home() {
               <div className="hero-stat-l">Countries Served</div>
             </div>
             <div>
-              <div className="hero-stat-n">100<span>%</span></div>
-              <div className="hero-stat-l">Client Satisfaction</div>
+              <div className="hero-stat-n">5.0<span>★</span></div>
+              <div className="hero-stat-l">Verified Rating</div>
             </div>
             <div>
-              <div className="hero-stat-n">24<span>/7</span></div>
-              <div className="hero-stat-l">Support Available</div>
+              <div className="hero-stat-n">&lt;24<span>h</span></div>
+              <div className="hero-stat-l">Response Time</div>
             </div>
           </div>
         </div>
@@ -122,32 +122,32 @@ export default function Home() {
           </div>
           <div className="about-content">
             <p className="about-text">
-              We're a team of passionate engineers, designers, and innovators dedicated to building exceptional digital products. From AI-powered platforms to enterprise solutions, we combine technical excellence with creative problem-solving.
+              NovaEdge Solutions is a focused, senior-led software studio. We combine engineering discipline with clear communication to deliver digital products that work in production — and keep working. We deliberately stay lean so that the people who scope your project are the same people who build it.
             </p>
             <p className="about-text">
-              Our mission is simple: transform complex business challenges into elegant software solutions that drive real growth.
+              We work as a long-term partner, not a one-off contractor: honest scoping, steady communication, on-time delivery, and full ownership of the code and data we produce for you.
             </p>
           </div>
           <div className="values-grid">
             <div className="value-card">
-              <div className="value-icon">🚀</div>
-              <div className="value-title">Fast Delivery</div>
-              <div className="value-desc">Agile development cycles with rapid iterations and continuous deployment</div>
+              <div className="value-icon">🧑‍💻</div>
+              <div className="value-title">Direct Access</div>
+              <div className="value-desc">You work directly with the engineers building your product — no layers, no handoffs</div>
             </div>
             <div className="value-card">
-              <div className="value-icon">💎</div>
-              <div className="value-title">Quality First</div>
-              <div className="value-desc">Enterprise-grade code with comprehensive testing and documentation</div>
+              <div className="value-icon">📋</div>
+              <div className="value-title">Transparent Scopes</div>
+              <div className="value-desc">Fixed scopes and milestones with defined deliverables — no surprises, no hidden costs</div>
             </div>
             <div className="value-card">
-              <div className="value-icon">🎯</div>
-              <div className="value-title">Result Focused</div>
-              <div className="value-desc">Measurable outcomes and KPIs that matter to your business</div>
+              <div className="value-icon">🔒</div>
+              <div className="value-title">Confidentiality First</div>
+              <div className="value-desc">NDAs as standard. Your data, designs, and IP remain entirely yours</div>
             </div>
             <div className="value-card">
-              <div className="value-icon">🤝</div>
-              <div className="value-title">True Partnership</div>
-              <div className="value-desc">Long-term relationships built on trust and mutual success</div>
+              <div className="value-icon">⭐</div>
+              <div className="value-title">Verifiable Track Record</div>
+              <div className="value-desc">A 5.0★ rating backed by public, verifiable Upwork reviews</div>
             </div>
           </div>
         </div>
@@ -395,16 +395,143 @@ export default function Home() {
 
       <div className="hr"></div>
 
+      {/* HOW WE WORK */}
+      <section className="process" id="process">
+        <div className="wrap">
+          <div className="text-center">
+            <div className="sec-label">Engagement & Trust</div>
+            <h2 className="sec-title">How We <em>Work</em></h2>
+            <p className="sec-sub" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+              A simple, transparent process — you always know where your project stands
+            </p>
+          </div>
+
+          <div className="process-steps">
+            <div className="process-step">
+              <div className="step-num">01</div>
+              <div className="step-body">
+                <h3>Discovery & trust-building</h3>
+                <p>We start with a conversation — understanding your goals, constraints, and success criteria before proposing anything.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-num">02</div>
+              <div className="step-body">
+                <h3>Clear, fixed scope</h3>
+                <p>A written proposal with defined deliverables, milestones, and pricing. No surprises and no hidden costs.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-num">03</div>
+              <div className="step-body">
+                <h3>Build with steady updates</h3>
+                <p>Regular progress demos and a single point of contact. You always know where your project stands.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-num">04</div>
+              <div className="step-body">
+                <h3>Test, deliver & hand over</h3>
+                <p>Quality-checked delivery with full source code, documentation, and a clean handover.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-num">05</div>
+              <div className="step-body">
+                <h3>Long-term support</h3>
+                <p>Ongoing maintenance and enhancement as a continuing partner — the relationship does not end at delivery.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="assurances">
+            <div className="assurance-card">
+              <h4>Confidentiality</h4>
+              <p>NDAs as standard. Your data, designs, and IP remain entirely yours.</p>
+            </div>
+            <div className="assurance-card">
+              <h4>Responsive communication</h4>
+              <p>Replies within 24 hours, in clear and professional English.</p>
+            </div>
+            <div className="assurance-card">
+              <h4>Honest commitments</h4>
+              <p>We only promise what we can deliver — and we deliver what we promise.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="hr"></div>
+
+      {/* VERIFIED REVIEWS */}
+      <section className="reviews" id="reviews">
+        <div className="wrap">
+          <div className="text-center">
+            <div className="sec-label">Client Feedback</div>
+            <h2 className="sec-title">Verified <em>Reviews</em></h2>
+          </div>
+
+          <div className="rating-banner">
+            <div>
+              <div className="rating-banner-title">Average rating across verified Upwork contracts</div>
+              <div className="rating-banner-sub">Publicly verifiable on our Upwork freelancer & agency profiles</div>
+            </div>
+            <div className="rating-banner-score">5.0 ★</div>
+          </div>
+
+          <div className="reviews-grid">
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <div className="review-proj">Front-End Figma Design & Implementation</div>
+              <p className="review-text">“Designed and delivered perfectly on time. Would highly recommend to anyone wanting a punctual professional.”</p>
+              <div className="review-by">— Verified Upwork Client</div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <div className="review-proj">Google OCR API Implementation</div>
+              <p className="review-text">“Excellent technical implementation and exceptional execution speed on the OCR pipeline. Highly recommended developer.”</p>
+              <div className="review-by">— Verified Upwork Client</div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <div className="review-proj">Streamlit & Amazon API Integration</div>
+              <p className="review-text">“Highly knowledgeable, professional execution, and robust backend alignment with Amazon interfaces.”</p>
+              <div className="review-by">— Verified Upwork Client</div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <div className="review-proj">MERN Stack — UI Changes & New Feature</div>
+              <p className="review-text">“Incredibly professional UI adjustments and clean full-stack enhancements to our production system.”</p>
+              <div className="review-by">— Verified Upwork Client</div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <div className="review-proj">PHP Web Issue Resolution</div>
+              <p className="review-text">“Solved the issue very fast. Hope to work together again.”</p>
+              <div className="review-by">— Verified Upwork Client</div>
+            </div>
+            <div className="review-card">
+              <div className="review-stars">★★★★★</div>
+              <div className="review-proj">LabVIEW Email Issue (Agency)</div>
+              <p className="review-text">“Outstanding diagnostics. Quickly isolated the breakdown in our LabVIEW system and fixed the mailing routines cleanly.”</p>
+              <div className="review-by">— Engineering Client</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="hr"></div>
+
       {/* PROJECTS PREVIEW */}
       <section className="projects-preview">
         <div className="wrap">
-          <div className="sec-label">Our Work</div>
-          <h2 className="sec-title">Featured <em>Projects</em></h2>
+          <div className="sec-label">Selected Work</div>
+          <h2 className="sec-title">Case <em>Studies</em></h2>
           <p className="preview-text">
-            We've built 10+ production-ready applications serving thousands of users. From AI platforms to enterprise systems, explore our complete portfolio.
+            A sample of production systems we've delivered — from AI-powered automation to enterprise and web platforms. Explore the challenges we solved and the results we shipped.
           </p>
           <Link href="/projects" className="btn-primary">
-            View All Projects →
+            View Case Studies →
           </Link>
         </div>
       </section>
@@ -423,10 +550,10 @@ export default function Home() {
           </div>
 
           <div className="contact-grid">
-            <div className="contact-card" onClick={() => goLink('mailto:WajidAliShah2004@gmail.com')}>
+            <div className="contact-card" onClick={() => goLink('mailto:murtazajii603@gmail.com')}>
               <div className="contact-icon">📧</div>
-              <div className="contact-label">Email - Wajid</div>
-              <div className="contact-value">wajidAliShah2004@gmail.com</div>
+              <div className="contact-label">Email - Murtaza</div>
+              <div className="contact-value">murtazajii603@gmail.com</div>
             </div>
 
             <div className="contact-card" onClick={() => goLink('mailto:Zeeshanonwork@gmail.com')}>
@@ -437,7 +564,7 @@ export default function Home() {
 
             <div className="contact-card" onClick={() => goLink('tel:+923165479603')}>
               <div className="contact-icon">📱</div>
-              <div className="contact-label">Phone - Wajid</div>
+              <div className="contact-label">Phone - Murtaza</div>
               <div className="contact-value">+92 316 5479603</div>
             </div>
 
@@ -449,12 +576,6 @@ export default function Home() {
           </div>
 
           <div className="social-links">
-            <button className="social-btn" onClick={() => goLink('https://github.com/WajidAliShah2004')}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-              </svg>
-              GitHub
-            </button>
             <button className="social-btn" onClick={() => goLink('https://www.linkedin.com/in/murtaza-hussain-97175b197/')}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -480,7 +601,7 @@ export default function Home() {
               <div className="footer-tag">Building the future, one project at a time</div>
             </div>
             <div className="footer-copy">
-              © 2025 NovaEdge Solutions. All rights reserved.
+              © 2026 NovaEdge Solutions. All rights reserved.
             </div>
           </div>
         </div>

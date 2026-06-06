@@ -3,6 +3,73 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+const CASE_STUDIES = [
+  {
+    badge: 'badge-ai',
+    tag: 'AI · Automation',
+    title: 'AI-Powered Lead Generation Engine',
+    challenge: 'A B2B client needed qualified leads at scale without manual research.',
+    result: 'An automated engine that scrapes, enriches, and delivers structured leads on a schedule.',
+    stack: 'Python · Web Scraping · Data Enrichment · Automation',
+  },
+  {
+    badge: 'badge-web',
+    tag: 'Automation · Infrastructure',
+    title: 'Workflow Automation Infrastructure (Barbeflo)',
+    challenge: 'High volumes of incoming webhooks and data needed processing with minimal manual work.',
+    result: 'Automated multi-step workflows that normalise data and run operations with near-zero overhead.',
+    stack: 'n8n · Python · Webhooks · API Integration',
+  },
+  {
+    badge: 'badge-ai',
+    tag: 'OCR · Document AI',
+    title: 'Document Processing with Google OCR',
+    challenge: 'Unstructured documents needed to be converted into usable, structured data.',
+    result: 'An OCR pipeline that turns scanned text into clean, structured records automatically.',
+    stack: 'Google Cloud Vision OCR · Node.js · JSON',
+  },
+  {
+    badge: 'badge-enterprise',
+    tag: 'Data · Dashboards',
+    title: 'Amazon Seller Analytics Dashboard',
+    challenge: 'A seller needed clear inventory and performance reporting from Amazon data.',
+    result: 'An interactive dashboard that pulls marketplace metrics into clear, visual reports.',
+    stack: 'Python · Streamlit · Amazon API',
+  },
+  {
+    badge: 'badge-web',
+    tag: 'Enterprise · MERN',
+    title: 'Enterprise MERN Platform & UI System',
+    challenge: 'An existing dashboard and admin system needed performance and UI improvements.',
+    result: 'Optimised components and a responsive admin experience with faster page loads.',
+    stack: 'MongoDB · Express · React · Node.js · Tailwind CSS',
+  },
+  {
+    badge: 'badge-web',
+    tag: 'Front-End · Figma',
+    title: 'Figma-to-Code Front-End Delivery',
+    challenge: 'Designer mockups needed to become a pixel-accurate, interactive front-end.',
+    result: 'Clean, responsive implementation faithful to the original design.',
+    stack: 'Next.js · TypeScript · Figma',
+  },
+  {
+    badge: 'badge-enterprise',
+    tag: 'Enterprise · Industrial',
+    title: 'LabVIEW Email & Routing Fix',
+    challenge: "An industrial LabVIEW system's automated email notifications had stopped working.",
+    result: 'Diagnosed and restored secure email routing inside the enterprise system.',
+    stack: 'LabVIEW · SMTP · Server Systems',
+  },
+  {
+    badge: 'badge-mobile',
+    tag: 'Web · Performance',
+    title: 'PHP Web Performance Troubleshooting',
+    challenge: 'A customer portal suffered from scripting errors and slow database queries.',
+    result: 'Resolved errors and optimised indexing to reduce load times significantly.',
+    stack: 'PHP · MySQL · Web Server',
+  },
+];
+
 export default function ProjectsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -12,10 +79,6 @@ export default function ProjectsPage() {
 
   const closeMenu = () => {
     setMenuOpen(false);
-  };
-
-  const goLink = (url: string) => {
-    window.open(url, '_blank');
   };
 
   const scrollToContact = () => {
@@ -69,259 +132,40 @@ export default function ProjectsPage() {
       {/* HERO */}
       <section className="projects-hero">
         <div className="wrap">
-          <div className="sec-label">Portfolio</div>
+          <div className="sec-label">Selected Work</div>
           <h1 className="sec-title">
-            Our <em>Work</em>
+            Case <em>Studies</em>
           </h1>
           <p className="sec-sub" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-            Production-ready applications serving thousands of users worldwide
+            A sample of production systems we have delivered. Project links are available on request and on our Upwork agency profile.
           </p>
         </div>
       </section>
 
-      {/* PROJECTS */}
+      {/* CASE STUDIES */}
       <section style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
         <div className="wrap">
           <div className="projects-grid">
-            
-            {/* FEATURED PROJECT */}
-            <div className="project-card featured-project">
-              <div className="project-accent"></div>
-              <div className="featured-content">
-                <div className="featured-left">
-                  <div className="featured-badge">
-                    ⭐ Featured Project
-                  </div>
-                  <h2>A.T.L.A.S. ENGINE</h2>
-                  <p className="project-subtitle">atlase.ai · Autonomous Sales Automation Platform</p>
-                  <p>
-                    An autonomous lead generation platform that streamlines sales operations through intelligent automation — automatically discovering prospects, enriching business data, qualifying leads, and scheduling meetings without any manual intervention.
-                  </p>
-                  <div className="project-impacts">
-                    <div className="impact-item">
-                      <div className="impact-check">✓</div>
-                      <span>Increased sales team productivity significantly</span>
+            {CASE_STUDIES.map((c) => (
+              <div className="project-card" key={c.title}>
+                <div className="project-accent"></div>
+                <div className="project-body">
+                  <div className={`project-badge ${c.badge}`}>{c.tag}</div>
+                  <h3 className="project-title">{c.title}</h3>
+                  <div className="case-rows">
+                    <div className="case-row">
+                      <div className="case-k">Challenge</div>
+                      <div className="case-v">{c.challenge}</div>
                     </div>
-                    <div className="impact-item">
-                      <div className="impact-check">✓</div>
-                      <span>Eliminated manual prospecting overhead entirely</span>
-                    </div>
-                    <div className="impact-item">
-                      <div className="impact-check">✓</div>
-                      <span>Automated lead qualification pipeline end-to-end</span>
+                    <div className="case-row">
+                      <div className="case-k">Result</div>
+                      <div className="case-v">{c.result}</div>
                     </div>
                   </div>
-                  <button className="btn-primary" onClick={() => goLink('https://atlase.ai')}>
-                    Visit atlase.ai →
-                  </button>
-                </div>
-                <div className="featured-right">
-                  <div className="contribution-box">
-                    <div className="contribution-title">Our Contribution</div>
-                    <div className="contribution-list">
-                      <div className="contribution-item"><span className="contrib-dot"></span>Backend Architecture</div>
-                      <div className="contribution-item"><span className="contrib-dot"></span>Workflow Automation Engine</div>
-                      <div className="contribution-item"><span className="contrib-dot"></span>REST API Development</div>
-                      <div className="contribution-item"><span className="contrib-dot"></span>Lead Enrichment Pipelines</div>
-                      <div className="contribution-item"><span className="contrib-dot"></span>CRM Integrations</div>
-                    </div>
-                  </div>
-                  <div className="contribution-box">
-                    <div className="contribution-title">Tech Stack</div>
-                    <div className="stack-badges">
-                      <span className="stack-badge">Node.js</span>
-                      <span className="stack-badge">AI Automation</span>
-                      <span className="stack-badge">REST APIs</span>
-                      <span className="stack-badge">CRM Integration</span>
-                    </div>
-                  </div>
+                  <div className="case-stack">{c.stack}</div>
                 </div>
               </div>
-            </div>
-
-            {/* MREC AI */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-ai">OCR · Document AI</div>
-                <h3 className="project-title">MREC AI</h3>
-                <p className="project-subtitle">mrecai.com · Intelligent Business Automation</p>
-                <p className="project-desc">
-                  Helps businesses automate document processing and workflow management using OCR and AI, delivering higher accuracy with less manual effort.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">Intelligent OCR</span>
-                  <span className="project-feature">Data Extraction</span>
-                  <span className="project-feature">Workflow Automation</span>
-                  <span className="project-feature">Analytics Dashboard</span>
-                </div>
-                <div className="project-link" onClick={() => goLink('https://mrecai.com')}>
-                  Visit mrecai.com →
-                </div>
-              </div>
-            </div>
-
-            {/* GRADEWISE AI */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-ai">EdTech · AI Grading</div>
-                <h3 className="project-title">GradeWise AI</h3>
-                <p className="project-subtitle">gradewiseai.com · Educational Assessment Platform</p>
-                <p className="project-desc">
-                  Assists students and educators through intelligent grading, assignment analysis, plagiarism detection, and personalized learning tools powered by AI.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">AI Grading</span>
-                  <span className="project-feature">Rubric Analysis</span>
-                  <span className="project-feature">AI Tutor</span>
-                  <span className="project-feature">Plagiarism Detection</span>
-                </div>
-                <div className="project-link" onClick={() => goLink('https://www.gradewiseai.com')}>
-                  Visit gradewiseai.com →
-                </div>
-              </div>
-            </div>
-
-            {/* STORIBEE */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-web">AI · Voice · Storytelling</div>
-                <h3 className="project-title">Storibee</h3>
-                <p className="project-subtitle">storibee.com · Personalized AI Storytelling</p>
-                <p className="project-desc">
-                  Generates personalized bedtime stories and voice experiences using AI — allowing families to create unique storytelling experiences with customized content.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">Personalized Stories</span>
-                  <span className="project-feature">AI Voice Replication</span>
-                  <span className="project-feature">Story Library</span>
-                  <span className="project-feature">Secure Profiles</span>
-                </div>
-                <div className="project-link" onClick={() => goLink('https://storibee.com')}>
-                  Visit storibee.com →
-                </div>
-              </div>
-            </div>
-
-            {/* TOURDESWAT */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-web">Tourism · Booking</div>
-                <h3 className="project-title">TourDeSwat</h3>
-                <p className="project-subtitle">tourdeswat.pk · Tourism & Booking Platform</p>
-                <p className="project-desc">
-                  A digital tourism platform helping travelers discover destinations, book tours, and plan travel experiences in the scenic Swat Valley region.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">Destination Listings</span>
-                  <span className="project-feature">Tour Packages</span>
-                  <span className="project-feature">Booking Management</span>
-                  <span className="project-feature">Search & Filtering</span>
-                </div>
-                <div className="project-link" onClick={() => goLink('https://tourdeswat.pk')}>
-                  Visit tourdeswat.pk →
-                </div>
-              </div>
-            </div>
-
-            {/* FACE RECOGNITION */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-ai">AI · Computer Vision</div>
-                <h3 className="project-title">Face Recognition System</h3>
-                <p className="project-subtitle">Biometric Identity Verification Platform</p>
-                <p className="project-desc">
-                  Real-time face recognition for identity verification, access control, and attendance tracking using computer vision and deep learning.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">Real-Time Detection</span>
-                  <span className="project-feature">Identity Verification</span>
-                  <span className="project-feature">Access Control</span>
-                  <span className="project-feature">Deep Learning</span>
-                </div>
-              </div>
-            </div>
-
-            {/* INVENTORY MANAGEMENT */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-enterprise">Enterprise · Operations</div>
-                <h3 className="project-title">Inventory Management System</h3>
-                <p className="project-subtitle">Full-featured Stock & Warehouse Management</p>
-                <p className="project-desc">
-                  Comprehensive platform to track stock levels, manage suppliers, automate reorder alerts, and generate real-time operational reports.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">Stock Tracking</span>
-                  <span className="project-feature">Supplier Management</span>
-                  <span className="project-feature">Auto Reorder</span>
-                  <span className="project-feature">Analytics</span>
-                </div>
-              </div>
-            </div>
-
-            {/* MOBILE SHOP */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-mobile">Retail · POS</div>
-                <h3 className="project-title">Mobile Shop Management</h3>
-                <p className="project-subtitle">POS & Retail Operations Platform</p>
-                <p className="project-desc">
-                  All-in-one shop management for mobile retailers covering sales, inventory, repair job tracking, and financial reporting.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">POS System</span>
-                  <span className="project-feature">Repair Tracking</span>
-                  <span className="project-feature">Customer Records</span>
-                  <span className="project-feature">Sales Reports</span>
-                </div>
-              </div>
-            </div>
-
-            {/* ENTERPRISE DESKTOP */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-enterprise">Enterprise · Desktop</div>
-                <h3 className="project-title">Enterprise Desktop Apps</h3>
-                <p className="project-subtitle">Custom .NET / C# Business Software</p>
-                <p className="project-desc">
-                  Custom desktop applications for enterprise environments delivering robust offline-capable tools for HR, workflow processing, and data management.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">.NET Core / C#</span>
-                  <span className="project-feature">Offline Capable</span>
-                  <span className="project-feature">HR Workflows</span>
-                  <span className="project-feature">Data Management</span>
-                </div>
-              </div>
-            </div>
-
-            {/* REAL-TIME NETWORKING */}
-            <div className="project-card">
-              <div className="project-accent"></div>
-              <div className="project-body">
-                <div className="project-badge badge-web">Infrastructure · Real-Time</div>
-                <h3 className="project-title">Real-Time Networking</h3>
-                <p className="project-subtitle">Live Data Sync & Event-Driven Architecture</p>
-                <p className="project-desc">
-                  High-performance real-time communication using WebSockets and event-driven architecture powering live dashboards and messaging.
-                </p>
-                <div className="project-features">
-                  <span className="project-feature">WebSocket Architecture</span>
-                  <span className="project-feature">Live Dashboards</span>
-                  <span className="project-feature">Event-Driven</span>
-                  <span className="project-feature">Scalable</span>
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
@@ -348,7 +192,7 @@ export default function ProjectsPage() {
               <div className="footer-tag">Building the future, one project at a time</div>
             </div>
             <div className="footer-copy">
-              © 2025 NovaEdge Solutions. All rights reserved.
+              © 2026 NovaEdge Solutions. All rights reserved.
             </div>
           </div>
         </div>
