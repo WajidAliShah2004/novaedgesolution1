@@ -1,7 +1,13 @@
-'use client';
-
-import { useState } from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+import SiteNav from '../components/SiteNav';
+import SiteFooter from '../components/SiteFooter';
+
+export const metadata: Metadata = {
+  title: 'Case Studies',
+  description:
+    'Production systems delivered by NovaEdge Solutions — AI automation engines, mobile apps, self-service kiosks, and enterprise platforms across five countries.',
+};
 
 type CaseStudy = {
   badge: string;
@@ -136,147 +142,88 @@ const CASE_STUDIES: CaseStudy[] = [
 ];
 
 export default function ProjectsPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
-
-  const scrollToContact = () => {
-    // Navigate to home page with contact hash
-    window.location.href = '/#contact';
-  };
-
   return (
     <div>
-      {/* NAVIGATION */}
-      <nav>
-        <div className="wrap">
-          <div className="nav-inner">
-            <Link href="/" className="nav-logo">
-              Nova<em>Edge</em>
-            </Link>
-            <div className="nav-links">
-              <Link href="/">Home</Link>
-              <Link href="/#about">About</Link>
-              <Link href="/#services">Services</Link>
-              <Link href="/#stack">Stack</Link>
-              <Link href="/projects">Projects</Link>
-              <a onClick={scrollToContact} className="nav-cta-btn" style={{ cursor: 'pointer' }}>
-                Get in Touch
-              </a>
-            </div>
-            <div
-              className={`hamburger ${menuOpen ? 'open' : ''}`}
-              onClick={toggleMenu}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+      <SiteNav />
+
+      <main id="main">
+        {/* HERO */}
+        <section className="projects-hero">
+          <div className="wrap">
+            <div className="sec-label">Selected Work</div>
+            <h1 className="sec-title">
+              Case <em>Studies</em>
+            </h1>
+            <p className="sec-sub" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+              A sample of production systems we have delivered. Project links are available on
+              request and on our Upwork agency profile.
+            </p>
           </div>
-        </div>
-      </nav>
+        </section>
 
-      {/* MOBILE MENU */}
-      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-        <Link href="/" onClick={closeMenu}>Home</Link>
-        <Link href="/#about" onClick={closeMenu}>About</Link>
-        <Link href="/#services" onClick={closeMenu}>Services</Link>
-        <Link href="/#stack" onClick={closeMenu}>Stack</Link>
-        <Link href="/projects" onClick={closeMenu}>Projects</Link>
-        <a onClick={() => { scrollToContact(); closeMenu(); }} className="m-cta" style={{ cursor: 'pointer' }}>
-          Get in Touch
-        </a>
-      </div>
-
-      {/* HERO */}
-      <section className="projects-hero">
-        <div className="wrap">
-          <div className="sec-label">Selected Work</div>
-          <h1 className="sec-title">
-            Case <em>Studies</em>
-          </h1>
-          <p className="sec-sub" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-            A sample of production systems we have delivered. Project links are available on request and on our Upwork agency profile.
-          </p>
-        </div>
-      </section>
-
-      {/* CASE STUDIES */}
-      <section style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
-        <div className="wrap">
-          <div className="projects-grid">
-            {CASE_STUDIES.map((c) => (
-              <div className="project-card" key={c.title}>
-                <div className="project-accent"></div>
-                <div className="project-body">
-                  <div className={`project-badge ${c.badge}`}>{c.tag}</div>
-                  <h3 className="project-title">{c.title}</h3>
-                  <div className="case-rows">
-                    <div className="case-row">
-                      <div className="case-k">Challenge</div>
-                      <div className="case-v">{c.challenge}</div>
+        {/* CASE STUDIES */}
+        <section className="projects-list">
+          <div className="wrap">
+            <div className="projects-grid">
+              {CASE_STUDIES.map((c) => (
+                <article className="project-card" key={c.title} data-reveal>
+                  <div className="project-accent"></div>
+                  <div className="project-body">
+                    <div className={`project-badge ${c.badge}`}>{c.tag}</div>
+                    <h3 className="project-title">{c.title}</h3>
+                    <div className="case-rows">
+                      <div className="case-row">
+                        <div className="case-k">Challenge</div>
+                        <div className="case-v">{c.challenge}</div>
+                      </div>
+                      <div className="case-row">
+                        <div className="case-k">Result</div>
+                        <div className="case-v">{c.result}</div>
+                      </div>
                     </div>
-                    <div className="case-row">
-                      <div className="case-k">Result</div>
-                      <div className="case-v">{c.result}</div>
-                    </div>
+                    <div className="case-stack">{c.stack}</div>
+                    {(c.location || c.link) && (
+                      <div className="case-meta">
+                        {c.location && <span className="case-loc">📍 {c.location}</span>}
+                        {c.link && (
+                          <a
+                            className="case-link"
+                            href={c.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {c.link.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
+                          </a>
+                        )}
+                      </div>
+                    )}
                   </div>
-                  <div className="case-stack">{c.stack}</div>
-                  {(c.location || c.link) && (
-                    <div className="case-meta">
-                      {c.location && <span className="case-loc">📍 {c.location}</span>}
-                      {c.link && (
-                        <a
-                          className="case-link"
-                          href={c.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {c.link.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section style={{ padding: '80px 0', textAlign: 'center' }}>
-        <div className="wrap">
-          <h2 className="sec-title">Ready to Start Your <em>Project</em>?</h2>
-          <p className="sec-sub" style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '2rem' }}>
-            Let's discuss how we can help bring your ideas to life
-          </p>
-          <Link href="/#contact" className="btn-primary">
-            Get in Touch →
-          </Link>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer>
-        <div className="wrap">
-          <div className="footer-inner">
-            <div>
-              <div className="footer-logo">Nova<em>Edge</em> Solutions</div>
-              <div className="footer-tag">Building the future, one project at a time</div>
-            </div>
-            <div className="footer-copy">
-              © 2026 NovaEdge Solutions. All rights reserved.
+                </article>
+              ))}
             </div>
           </div>
-        </div>
-      </footer>
+        </section>
+
+        {/* CTA */}
+        <section className="projects-cta">
+          <div className="wrap">
+            <h2 className="sec-title">
+              Ready to Start Your <em>Project</em>?
+            </h2>
+            <p
+              className="sec-sub"
+              style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '2rem' }}
+            >
+              Send a brief or just an idea — we reply within 24 hours.
+            </p>
+            <Link href="/#contact" className="btn-primary">
+              Get in Touch →
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <SiteFooter />
     </div>
   );
 }

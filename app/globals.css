@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+/* Fonts are self-hosted via next/font (see app/layout.tsx) and exposed as
+   --font-inter, --font-grotesk, and --font-space-mono custom properties. */
 
 *,
 *::before,
@@ -48,9 +49,9 @@
   --shadow-glow-hud: 0 0 24px rgba(255, 180, 84, 0.25);
 
   /* Fonts */
-  --font-primary: 'Inter', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-mono: 'Space Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --font-primary: var(--font-inter), 'Inter', sans-serif;
+  --font-display: var(--font-grotesk), 'Space Grotesk', sans-serif;
+  --font-mono: var(--font-space-mono), 'Space Mono', ui-monospace, monospace;
 
   /* Layout */
   --max-width: 1280px;
@@ -60,8 +61,38 @@
 
 html {
   scroll-behavior: smooth;
+  /* Anchor targets land clear of the fixed 80px nav */
+  scroll-padding-top: 96px;
   overflow-x: hidden;
   background: var(--bg-deep);
+}
+
+::selection {
+  background: rgba(0, 229, 255, 0.28);
+  color: var(--text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 10001;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 body {
@@ -234,6 +265,12 @@ nav {
   background: rgba(10, 10, 15, 0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.nav-scrolled {
+  background: rgba(8, 8, 13, 0.92);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 }
 
 .nav-inner {
@@ -317,6 +354,8 @@ nav {
   gap: 6px;
   cursor: pointer;
   padding: 0.5rem;
+  background: none;
+  border: none;
 }
 
 .hamburger span {
@@ -784,15 +823,15 @@ section {
 footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
-  padding: 3rem 0;
+  padding: 4rem 0 2rem;
 }
 
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .footer-logo {
@@ -809,12 +848,76 @@ footer {
 .footer-tag {
   font-size: 0.9rem;
   color: var(--text-muted);
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+.footer-readout {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-head {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 0.4rem;
+}
+
+.footer-col a {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  width: fit-content;
+}
+
+.footer-col a:hover {
+  color: var(--accent-primary);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
 }
 
 .footer-copy {
   font-size: 0.9rem;
   color: var(--text-muted);
+}
+
+.footer-cta {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.footer-cta:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* ═══════════════════════════════════
@@ -923,9 +1026,10 @@ footer {
   .service-card {
     padding: 2rem 1.5rem;
   }
-  
+
   .service-icon {
-    font-size: 2.5rem;
+    width: 46px;
+    height: 46px;
   }
   
   .service-title {
@@ -943,12 +1047,6 @@ footer {
   
   .value-card {
     padding: 1.75rem;
-  }
-  
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
   }
 }
 
@@ -1037,7 +1135,8 @@ footer {
   }
   
   .service-icon {
-    font-size: 2.25rem;
+    width: 44px;
+    height: 44px;
     margin-bottom: 1.25rem;
   }
   
@@ -1070,9 +1169,10 @@ footer {
   .value-card {
     padding: 1.5rem;
   }
-  
+
   .value-icon {
-    font-size: 2.25rem;
+    width: 44px;
+    height: 44px;
   }
   
   .value-title {
@@ -1191,24 +1291,6 @@ footer {
   padding: 2rem;
   text-align: center;
   transition: all 0.3s ease;
-  animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.value-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.value-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.value-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.value-card:nth-child(4) {
-  animation-delay: 0.4s;
 }
 
 .value-card:hover {
@@ -1218,8 +1300,16 @@ footer {
 }
 
 .value-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--accent-primary);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.18);
 }
 
 .value-title {
@@ -1280,56 +1370,6 @@ footer {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.service-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.service-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.service-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.service-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.service-card:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-.service-card:nth-child(6) {
-  animation-delay: 0.6s;
-}
-
-.service-card:nth-child(7) {
-  animation-delay: 0.7s;
-}
-
-.service-card:nth-child(8) {
-  animation-delay: 0.8s;
-}
-
-.service-card:nth-child(9) {
-  animation-delay: 0.9s;
-}
-
-.service-card:nth-child(10) {
-  animation-delay: 1s;
-}
-
-.service-card:nth-child(11) {
-  animation-delay: 1.1s;
-}
-
-.service-card:nth-child(12) {
-  animation-delay: 1.2s;
 }
 
 .service-card::before {
@@ -1356,9 +1396,24 @@ footer {
 }
 
 .service-icon {
-  font-size: 3rem;
+  width: 52px;
+  height: 52px;
   margin-bottom: 1.5rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--accent-primary);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  color: var(--bg-primary);
+  background: var(--accent-gradient);
+  border-color: transparent;
+  box-shadow: var(--shadow-glow);
 }
 
 .service-title {
@@ -1523,24 +1578,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.contact-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.contact-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.contact-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.contact-card:nth-child(4) {
-  animation-delay: 0.4s;
 }
 
 .contact-card:hover {
@@ -1550,9 +1587,16 @@ footer {
 }
 
 .contact-icon {
-  font-size: 2.5rem;
+  width: 48px;
+  height: 48px;
   margin-bottom: 1rem;
-  animation: scaleIn 0.5s ease-out forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--accent-primary);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.18);
 }
 
 .contact-label {
@@ -1715,6 +1759,23 @@ footer {
   background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
+.projects-list {
+  padding: 80px 0;
+  background: var(--bg-secondary);
+}
+
+.projects-cta {
+  padding: 80px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .projects-list,
+  .projects-cta {
+    padding: 60px 0;
+  }
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -1730,48 +1791,6 @@ footer {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.project-card:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.project-card:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.project-card:nth-child(3) {
-  animation-delay: 0.2s;
-}
-
-.project-card:nth-child(4) {
-  animation-delay: 0.3s;
-}
-
-.project-card:nth-child(5) {
-  animation-delay: 0.4s;
-}
-
-.project-card:nth-child(6) {
-  animation-delay: 0.5s;
-}
-
-.project-card:nth-child(7) {
-  animation-delay: 0.6s;
-}
-
-.project-card:nth-child(8) {
-  animation-delay: 0.7s;
-}
-
-.project-card:nth-child(9) {
-  animation-delay: 0.8s;
-}
-
-.project-card:nth-child(10) {
-  animation-delay: 0.9s;
 }
 
 .project-card:hover {
@@ -2211,6 +2230,28 @@ footer {
 }
 
 /* ═══════════════════════════════════
+   SCROLL REVEAL
+   Gated by .has-reveal on <html> (set by ScrollReveal.tsx) so content is
+   never hidden when JS is unavailable or reduced motion is preferred.
+   ═══════════════════════════════════ */
+
+.has-reveal [data-reveal] {
+  opacity: 0;
+}
+
+.has-reveal [data-reveal].revealed {
+  opacity: 1;
+  animation: fadeInUp 0.7s cubic-bezier(0.2, 0.6, 0.2, 1) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-reveal [data-reveal] {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════
    ENHANCED ANIMATIONS
    ═══════════════════════════════════ */
 
@@ -2336,7 +2377,8 @@ footer {
   }
   
   .contact-icon {
-    font-size: 2rem;
+    width: 42px;
+    height: 42px;
     margin-bottom: 0.75rem;
   }
 }
@@ -2352,7 +2394,8 @@ footer {
   }
 
   .contact-icon {
-    font-size: 1.75rem;
+    width: 40px;
+    height: 40px;
   }
 
   .contact-label {
@@ -2689,12 +2732,12 @@ footer {
   100% { transform: translateY(calc(100vh + 160px)); }
 }
 
-/* Keep app content above the backdrop layers */
-nav,
+/* Keep app content above the backdrop layers.
+   (nav and .mobile-menu are position:fixed with their own z-index — do not
+   add them here or their fixed positioning would be overridden.) */
 .hero,
 section,
-footer,
-.mobile-menu {
+footer {
   position: relative;
   z-index: 1;
 }
@@ -2714,7 +2757,7 @@ footer,
 
 /* ── Hero: monospace status readout ── */
 .hud-readout {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 0.4rem 1.4rem;
   font-family: var(--font-mono);
